@@ -21,6 +21,11 @@ public class TreeNode {
         return data;
     }
 
+    /**
+     * This function recursively searching for a value inside the Tree
+     * @param value The value to be searched
+     * @return It returns the TreeNode which is the data is there. If there is not such a value it will return null.
+     */
     public TreeNode recursiveSearch(int value) {
         if (data == value) {
             return this;
@@ -40,6 +45,10 @@ public class TreeNode {
         }
     }
 
+    /**
+     * This function recursively seeking for the TreeNode which has the minimum value
+     * @return TreeNode with minimum value - leftmost node
+     */
     public TreeNode recursiveMinSearch() {
         if (left == null) {
             return this;
@@ -47,10 +56,45 @@ public class TreeNode {
         return left.recursiveMinSearch();
     }
 
+    /**
+     * This function recursively seeking for the TreeNode which has the maximum value
+     * @return TreeNode with maximum value - rightmost node
+     */
     public TreeNode recursiveMaxSearch() {
         if (right == null) {
             return this;
         }
         return right.recursiveMaxSearch();
+    }
+
+
+    public void preorder() {
+        System.out.println(data);
+        if (left != null) {
+            left.preorder();
+        }
+        if (right != null) {
+            right.preorder();
+        }
+    }
+
+    public void inorder() {
+        if (left != null) {
+            left.inorder();
+        }
+        System.out.println(data);
+        if (right != null) {
+            right.inorder();
+        }
+    }
+
+    public void postorder() {
+        if (left != null) {
+            left.postorder();
+        }
+        if (right != null) {
+            right.postorder();
+        }
+        System.out.println(data);
     }
 }

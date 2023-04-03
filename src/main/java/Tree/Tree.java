@@ -23,6 +23,11 @@ public class Tree {
         }
     }
 
+    /**
+     * Iteratively search for a value inside a Tree.
+     * @param value The value to be searched.
+     * @return The TreeNode which contain the searched value or null if there is not such a value.
+     */
     public TreeNode iterativeSearch(int value) {
         TreeNode temp = root;
         while (temp != null) {
@@ -39,6 +44,10 @@ public class Tree {
         return null;
     }
 
+    /**
+     * Iteratively search for TreeNode which contain minimum value inside it.
+     * @return The TreeNode with minimum value, or null if it is empty.
+     */
     public TreeNode iterativeMinSearch() {
         TreeNode temp = root;
         TreeNode parent = null;
@@ -49,6 +58,10 @@ public class Tree {
         return parent;
     }
 
+    /**
+     * Iteratively search for TreeNode which contain maximum value inside it.
+     * @return The TreeNode with maximum value, or null if it is empty.
+     */
     public TreeNode iterativeMaxSearch() {
         TreeNode temp = root;
         while (temp != null) {
