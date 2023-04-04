@@ -1,13 +1,15 @@
-package Array;
+package Tree;
+
+import Array.Element;
 
 public class Stack {
-    private Element[] array;
+    private Array.Element[] array;
     private int top;
     private int N;
 
     public Stack(int N) {
         this.N = N;
-        array = new Element[N];
+        array = new Array.Element[N];
         top = -1;
     }
 
@@ -19,11 +21,11 @@ public class Stack {
         return top == -1;
     }
 
-    public Element peek() {
+    public Array.Element peek() {
         return array[top];
     }
 
-    public void push(Element element) {
+    public void push(Array.Element element) {
         if (!isFull()) {
             top++;
             array[top] = element;

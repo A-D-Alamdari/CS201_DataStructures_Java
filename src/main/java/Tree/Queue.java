@@ -1,4 +1,4 @@
-package Array;
+package Tree;
 
 public class Queue {
     private Element array[];

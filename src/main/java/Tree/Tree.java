@@ -1,5 +1,8 @@
 package Tree;
 
+import Array.Element;
+import Array.Stack;
+
 public class Tree {
     private TreeNode root;
 
@@ -87,4 +90,51 @@ public class Tree {
         return null;
     }
 
+    /**
+     * Insert a new element in a sorted binary Tree.
+     * @param node The new node to be added to a Tree.
+     */
+    public void insert(TreeNode node) {
+        TreeNode parent = null;
+        TreeNode temp = root;
+        while (temp != null) {
+            parent = temp;
+            if (node.getData() < temp.getData()) {
+                temp = temp.getLeft();
+            } else {
+                temp = temp.getRight();
+            }
+        }
+        if (parent == null) {
+            root = node;
+        } else {
+            if (node.getData() < parent.getData()) {
+                parent.setRight(node);
+            } else {
+                parent.setLeft(node);
+            }
+        }
+    }
+
+    public void recursiveInsert(TreeNode node) {
+        if (root == null) {
+            root = node;
+        } else {
+            root.recursiveInsert(node);
+        }
+    }
+
+    public void nodeCountWithStack() {
+        TreeNode temp;
+        temp = root;
+        Stack c = new Stack(100);
+        if (temp != null) {
+            c.push(new Element(temp));
+        }
+        while (temp != null) {
+            temp = temp.getRight();
+            temp = temp.getLeft();
+        }
+    }
 }
+
