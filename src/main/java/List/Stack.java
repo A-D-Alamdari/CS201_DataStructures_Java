@@ -25,4 +25,22 @@ public class Stack {
         top = top.getNext();
         return topNode;
     }
+
+    /**
+     * Write a function using stacks that determines if a parenthesis sequence
+     * is balanced or not. For example the parenthesis sequence ( { ( ) [ { } ] } ( ) ) is balanced, whereas the parenthesis sequence ( } ] ) ( is not.
+     * You can assume that the character sequence contains just (, {, [, ), },
+     * ] characters.
+     * @param str
+     * @return
+     */
+    public boolean isBalanced(String str) {
+        int i;
+        int length;
+        Stack stack;
+
+        length = str.length();
+        stack = new Stack(1000);
+        
+    }
 }

@@ -106,6 +106,89 @@ public class LinkedList {
         previous.setNext(node.getNext());
     }
 
+    public int findSmallest() {
+        int smallest;
+        Node temp;
+        temp = head;
+        smallest = temp.getData();
+        while (temp != null) {
+            if (temp.getData() < smallest) {
+                smallest = temp.getData();
+            }
+            temp = temp.getNext();
+        }
+        return smallest;
+    }
+
+    /**
+     * Given a sorted linked list, write a function to add a new integer without
+     * destroying the sortedness property.
+     * @param value
+     */
+    public void insertToSortedList(int value) {
+        Node previous = null;
+        Node temp = head;
+        Node newNode;
+        while (temp != null && temp.getData() <= value) {
+            previous = temp;
+            temp = temp.getNext();
+        }
+        newNode = new Node(value);
+        insertMiddle(newNode, previous);
+    }
+
+    public void deleteNodeI(int i) {
+        Node temp = head;
+        Node previous = null;
+        int j = 0;
+        while (j < i) {
+            j++;
+            previous = temp;
+            temp = temp.getNext();
+        }
+        if (previous == null) {
+            head = head.getNext();
+            if (head == null) {
+                tail = null;
+            }
+        } else {
+            previous.getNext() = temp.getNext();
+            if (previous.getNext() == null) {
+                tail = previous;
+            }
+        }
+
+    }
+
+    /**
+     * Given node X, write a function to move that node n position forward.
+     * Assume that there are at least n nodes after node X.
+     * @param X
+     * @param n
+     */
+    public void move(Node X, int n) {
+        Node previous1 = null;
+        Node previous2;
+        Node temp = head;
+        int i;
+        while (temp != X) {
+            previous1 = temp;
+            temp = temp.getNext();
+        }
+        i = 0;
+        previous2 = X;
+        while (i != n) {
+            previous2 = previous2.getNext();
+            i++;
+        }
+        if (previous1 != null) {
+            previous1.getNext() = X.getNext();
+        }
+        X.getNext() = previous2.getNext();
+        previous2.getNext() = X;
+    }
+
+
     public String toString() {
         StringBuilder result = new StringBuilder();
         Node temp = head;
